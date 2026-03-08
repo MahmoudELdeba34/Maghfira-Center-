@@ -1,0 +1,117 @@
+.container-narrow {
+    max-width: 800px;
+}
+
+.booking-wizard {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.steps-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.step-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background: var(--white);
+    color: var(--text-light);
+    position: relative;
+
+    &.active {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+        background: rgba(13, 66, 166, 0.05);
+    }
+
+    &.completed {
+        background: var(--primary-color);
+        color: var(--white);
+        border-color: var(--primary-color);
+    }
+}
+
+.step-line {
+    height: 2px;
+    width: 60px;
+    background: var(--border-color);
+}
+
+.service-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.option-card {
+    padding: 2.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    .icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    &:hover {
+        border-color: var(--secondary-color);
+        background: rgba(17, 166, 155, 0.02);
+    }
+
+    &.selected {
+        border-color: var(--primary-color);
+        background: rgba(13, 66, 166, 0.05);
+    }
+}
+
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.time-btn {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: none;
+    font-size: 0.85rem;
+    cursor: pointer;
+
+    &.selected {
+        background: var(--secondary-color);
+        color: var(--white);
+        border-color: var(--secondary-color);
+    }
+}
+
+.success-icon {
+    font-size: 5rem;
+}
+
+.form-select,
+.form-control {
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+
+    &:focus {
+        border-color: var(--primary-color);
+        box-shadow: none;
+    }
+}

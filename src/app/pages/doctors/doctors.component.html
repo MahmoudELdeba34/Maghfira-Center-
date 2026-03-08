@@ -1,0 +1,43 @@
+<section class="doctors-intro py-5 mt-5">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-3">نخبة من كبار الأطباء والاستشاريين</h1>
+        <p class="lead text-muted mx-auto" style="max-width: 800px;">
+            نفخر في مركز المغفرة الطبي بضم فريق متميز من الأطباء ذوي الخبرات الطويلة العلمية والعملية، المكرسين لتقديم
+            أفضل رعاية طبية ممكنة.
+        </p>
+    </div>
+</section>
+
+<section class="doctors-gallery py-5">
+    <div class="container">
+        <div class="filters mb-5">
+            <button class="filter-btn active">الكل</button>
+            <button class="filter-btn">جراحة</button>
+            <button class="filter-btn">باطنة</button>
+            <button class="filter-btn">أطفال</button>
+            <button class="filter-btn">أشعة</button>
+        </div>
+
+        <div class="doctors-grid">
+            <div class="doctor-card" *ngFor="let doc of doctors">
+                <div class="doctor-img">
+                    <img [src]="doc.image" [alt]="doc.name">
+                    <div class="overlay">
+                        <button class="btn btn-primary btn-sm" [routerLink]="['/booking']"
+                            [queryParams]="{doctor: doc.name}">حجز موعد</button>
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <h3>{{ doc.name }}</h3>
+                    <span class="specialty">{{ doc.specialty }}</span>
+                    <p class="degree">{{ doc.degree }}</p>
+                    <div class="actions">
+                        <i class="social-icon">f</i>
+                        <i class="social-icon">t</i>
+                        <i class="social-icon">i</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

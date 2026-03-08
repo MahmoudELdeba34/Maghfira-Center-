@@ -1,0 +1,174 @@
+.footer {
+    background-color: #1a202c;
+    color: #cbd5e1;
+    padding: 4rem 0 2rem;
+    font-size: 0.95rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.brand-col .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+
+    .footer-logo {
+        height: 64px;
+        width: auto;
+        object-fit: contain;
+        background: var(--white);
+        border-radius: 8px;
+        padding: 4px;
+    }
+}
+
+.brand-col h3 {
+    color: var(--white);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.brand-col p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--white);
+    transition: background-color 0.3s;
+}
+
+.socials a:hover {
+    background-color: var(--primary-color);
+}
+
+.footer h4 {
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+
+.branches {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.branches li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+.branches svg {
+    color: var(--primary-color);
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.branches strong {
+    display: block;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+}
+
+.branches span {
+    font-size: 0.85rem;
+}
+
+.hours {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.hours li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.hours li.emergency {
+    border-bottom: none;
+    color: var(--secondary-color);
+    font-weight: 600;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+.hotline-box {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.hotline-box span {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.hotline-box strong {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--white);
+    letter-spacing: 2px;
+}
+
+.support {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    justify-content: center;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+}
+
+.legal-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.legal-links a:hover {
+    color: var(--white);
+}
+
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}

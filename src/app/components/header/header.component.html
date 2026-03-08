@@ -1,0 +1,37 @@
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <a routerLink="/">
+                    <div class="logo-icon">
+                        <img src="assets/449193309_122105069888379004_185671855003502792_n.jpg" alt="Logo"
+                            class="main-logo">
+                    </div>
+                    <span class="logo-text">مركز المغفرة الطبي<br /><small>AL MAGHFIRAH MEDICAL</small></span>
+                </a>
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a routerLink="/" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact: true}">الرئيسية</a></li>
+                    <li><a routerLink="/clinics" routerLinkActive="active">العيادات المتخصصة</a></li>
+                    <li><a routerLink="/radiology" routerLinkActive="active">مركز الأشعة</a></li>
+                    <li><a routerLink="/doctors" routerLinkActive="active">نخبة الأطباء</a></li>
+                    <li><a routerLink="/contact" routerLinkActive="active">اتصل بنا</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="phone">
+                    <span class="phone-number">19909</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                </div>
+                <button class="btn btn-primary" routerLink="/booking">حجز سريع</button>
+            </div>
+        </div>
+    </div>
+</header>

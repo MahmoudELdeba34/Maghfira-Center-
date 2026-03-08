@@ -1,0 +1,76 @@
+<div class="contact-page py-5 mt-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <h1 class="fw-bold mb-4">تواصل معنا</h1>
+                <p class="mb-5">نحن هنا للإجابة على جميع استفساراتكم وطلباتكم. يسعدنا استقبالكم في مراكزنا.</p>
+
+                <div class="contact-methods">
+                    <div class="method-item d-flex gap-3 mb-4">
+                        <div class="icon-circle">📞</div>
+                        <div>
+                            <h5>الخط الساخن</h5>
+                            <p class="fs-4 fw-bold text-primary">19999</p>
+                        </div>
+                    </div>
+                    <div class="method-item d-flex gap-3 mb-4">
+                        <div class="icon-circle">📧</div>
+                        <div>
+                            <h5>البريد الإلكتروني</h5>
+                            <p>info&#64;almaghrira.com</p>
+                        </div>
+                    </div>
+                    <div class="method-item d-flex gap-3 mb-5">
+                        <div class="icon-circle">📍</div>
+                        <div>
+                            <h5>المقر الرئيسي</h5>
+                            <p>محافظة الشرقية - مركز مشتول السوق - كفر ابراش</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="branches-map">
+                    <h4 class="mb-4">موقعنا</h4>
+                    <div class="branch-card p-3 border rounded mb-3">
+                        <h6>فرع كفر ابراش</h6>
+                        <p class="small text-muted mb-0">مركز مشتول السوق - محافظة الشرقية</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="contact-form-card shadow-lg p-5 rounded-4">
+                    <div *ngIf="!submitted">
+                        <h3 class="mb-4">أرسل لنا رسالة</h3>
+                        <form (ngSubmit)="sendMessage()">
+                            <div class="mb-3">
+                                <label class="form-label">الاسم</label>
+                                <input type="text" class="form-control" name="name" [(ngModel)]="contactData.name"
+                                    required placeholder="أدخل اسمك الكامل">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">رقم الهاتف</label>
+                                <input type="tel" class="form-control" name="phone" [(ngModel)]="contactData.phone"
+                                    required placeholder="01xxxxxxxxx">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">الرسالة</label>
+                                <textarea class="form-control" rows="5" name="message" [(ngModel)]="contactData.message"
+                                    placeholder="كيف يمكننا مساعدتك؟"></textarea>
+                            </div>
+                            <button class="btn btn-primary w-100 py-3"
+                                [disabled]="!contactData.name || !contactData.phone">إرسال
+                                الرسالة</button>
+                        </form>
+                    </div>
+                    <div *ngIf="submitted" class="text-center py-5">
+                        <div class="success-icon mb-4">✅</div>
+                        <h3>تم الإرسال بنجاح!</h3>
+                        <p>شكراً لتواصلك معنا. سنقوم بالرد عليك في أقرب وقت ممكن.</p>
+                        <button class="btn btn-outline mt-3" (click)="submitted = false">إرسال رسالة أخرى</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

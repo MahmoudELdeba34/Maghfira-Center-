@@ -1,0 +1,96 @@
+.page-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #082d70 100%);
+    padding: 6rem 0 4rem;
+    color: var(--white);
+    text-align: center;
+
+    h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.25rem;
+        opacity: 0.9;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+}
+
+.clinics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 0;
+}
+
+.clinic-card-detailed {
+    background-color: var(--white);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    text-align: center;
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary-color);
+    }
+
+    .card-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+
+        svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        &.blue {
+            background-color: rgba(13, 66, 166, 0.1);
+            color: var(--primary-color);
+        }
+
+        &.teal {
+            background-color: rgba(17, 166, 155, 0.1);
+            color: var(--secondary-color);
+        }
+
+        &.purple {
+            background-color: rgba(124, 58, 237, 0.1);
+            color: #7c3aed;
+        }
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+    }
+
+    p {
+        color: var(--text-light);
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+    }
+
+    .btn-sm {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2.25rem;
+    }
+}

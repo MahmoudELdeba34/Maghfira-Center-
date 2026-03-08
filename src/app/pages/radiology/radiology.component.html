@@ -1,0 +1,58 @@
+<section class="radiology-hero">
+    <div class="container hero-grid">
+        <div class="hero-text">
+            <span class="badge">مركز متقدم للتشخيص</span>
+            <h1>أحدث مركز أشعة بقلب الشرقية</h1>
+            <p>نجمع بين الخبرة الطبية وأحدث التقنيات العالمية في مجال الأشعة لتقديم أدق التقارير التشخيصية في أسرع وقت
+                ممكن.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" routerLink="/booking">احجز فحصك الآن</button>
+                <button class="btn btn-outline" routerLink="/contact">تواصل معنا</button>
+            </div>
+        </div>
+        <div class="hero-image-overlay">
+            <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format" alt="Radiology Device">
+        </div>
+    </div>
+</section>
+
+<section class="services-info py-5">
+    <div class="container">
+        <div class="section-title text-center mb-5">
+            <h2>خدماتنا التشخيصية</h2>
+            <p>فحوصات شاملة تغطي كافة الاحتياجات الطبية</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card" *ngFor="let s of services">
+                <div class="service-body">
+                    <span class="service-feature">{{ s.feature }}</span>
+                    <h3>{{ s.title }}</h3>
+                    <p>{{ s.details }}</p>
+                </div>
+                <div class="service-footer">
+                    <button class="btn btn-outline btn-sm w-100" [routerLink]="['/booking']"
+                        [queryParams]="{service: 'radiology', detail: s.title}">حجز هذا الفحص</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="prep-guide bg-light py-5">
+    <div class="container guide-container">
+        <div class="guide-content">
+            <h2>دليل استعداد المريض</h2>
+            <p>إليك بعض الإرشادات الهامة قبل إجراء الفحص لضمان الحصول على أفضل النتائج:</p>
+            <ul class="guide-list">
+                <li><span>الصيام لمدة 6-8 ساعات لبعض فحوصات السونار والأشعة المقطعية بالصبغة.</span></li>
+                <li><span>إحضار الفحوصات والتقارير الطبية السابقة للمقارنة.</span></li>
+                <li><span>يرجى إبلاغنا في حالة وجود حمل أو احتمالية حدوثه.</span></li>
+                <li><span>يرجى إبلاغ التمريض في حالة وجود أي نوع من الحساسية تجاه الأدوية أو الصبغ.</span></li>
+            </ul>
+        </div>
+        <div class="guide-image">
+            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format" alt="Medical Guide">
+        </div>
+    </div>
+</section>

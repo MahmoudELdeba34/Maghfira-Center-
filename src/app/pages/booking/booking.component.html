@@ -1,0 +1,108 @@
+<section class="booking-page py-5 mt-5">
+    <div class="container container-narrow">
+        <div class="booking-wizard">
+            <!-- Header -->
+            <div class="wizard-header text-center mb-5">
+                <h1>حجز موعد إلكتروني</h1>
+                <div class="steps-indicator">
+                    <div class="step-dot" [class.active]="step >= 1" [class.completed]="step > 1"><span>1</span></div>
+                    <div class="step-line"></div>
+                    <div class="step-dot" [class.active]="step >= 2" [class.completed]="step > 2"><span>2</span></div>
+                    <div class="step-line"></div>
+                    <div class="step-dot" [class.active]="step >= 3" [class.completed]="step > 3"><span>3</span></div>
+                </div>
+            </div>
+
+            <!-- Step 1: Select Service -->
+            <div class="step-content" *ngIf="step === 1">
+                <h2>اختار نوع الخدمة</h2>
+                <div class="service-options">
+                    <div class="option-card" [class.selected]="bookingData.serviceType === 'clinic'"
+                        (click)="bookingData.serviceType = 'clinic'">
+                        <div class="icon">🏥</div>
+                        <h3>كشف طبي</h3>
+                        <p>حجز في إحدى العيادات التخصصية</p>
+                    </div>
+                    <div class="option-card" [class.selected]="bookingData.serviceType === 'radiology'"
+                        (click)="bookingData.serviceType = 'radiology'">
+                        <div class="icon">🌀</div>
+                        <h3>مركز أشعة</h3>
+                        <p>حجز فحص أشعة محدد</p>
+                    </div>
+                </div>
+                <div class="form-footer mt-4">
+                    <button class="btn btn-primary" [disabled]="!bookingData.serviceType"
+                        (click)="nextStep()">التالي</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Details & Schedule -->
+            <div class="step-content" *ngIf="step === 2">
+                <div class="form-group mb-4">
+                    <label>التخصص</label>
+                    <select class="form-select" [(ngModel)]="bookingData.specialty">
+                        <option value="">اختار التخصص...</option>
+                        <option *ngFor="let s of specialties" [value]="s">{{ s }}</option>
+                    </select>
+                </div>
+                <div class="form-group mb-4">
+                    <label>الطبيب</label>
+                    <select class="form-select" [(ngModel)]="bookingData.doctor">
+                        <option value="">اختار الطبيب...</option>
+                        <option *ngFor="let d of doctors" [value]="d">{{ d }}</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <label>التاريخ</label>
+                        <input type="date" class="form-control" [(ngModel)]="bookingData.date">
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <label>الموعد</label>
+                        <div class="time-grid">
+                            <button type="button" class="time-btn" *ngFor="let t of times"
+                                [class.selected]="bookingData.time === t" (click)="bookingData.time = t">{{ t
+                                }}</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-footer mt-4 d-flex justify-content-between">
+                    <button class="btn btn-outline" (click)="prevStep()">السابق</button>
+                    <button class="btn btn-primary" [disabled]="!bookingData.time || !bookingData.date"
+                        (click)="nextStep()">التالي</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Patient Info -->
+            <div class="step-content" *ngIf="step === 3">
+                <h2>تأكيد البيانات الشخصية</h2>
+                <div class="form-group mb-4">
+                    <label>الاسم بالكامل</label>
+                    <input type="text" class="form-control" placeholder="أدخل اسمك" [(ngModel)]="bookingData.name">
+                </div>
+                <div class="form-group mb-4">
+                    <label>رقم الهاتف</label>
+                    <input type="tel" class="form-control" placeholder="01xxxxxxxxx" [(ngModel)]="bookingData.phone">
+                </div>
+                <div class="summary-box p-3 bg-light rounded mb-4">
+                    <p><strong>الخدمة:</strong> {{ bookingData.serviceType === 'clinic' ? 'كشف طبي' : 'أشعة' }}</p>
+                    <p><strong>الموعد:</strong> {{ bookingData.date }} - {{ bookingData.time }}</p>
+                    <p><strong>الطبيب:</strong> {{ bookingData.doctor }}</p>
+                </div>
+                <div class="form-footer mt-4 d-flex justify-content-between">
+                    <button class="btn btn-outline" (click)="prevStep()">السابق</button>
+                    <button class="btn btn-primary" [disabled]="!bookingData.name || !bookingData.phone"
+                        (click)="submit()">تأكيد الحجز</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Success -->
+            <div class="step-content text-center py-5" *ngIf="step === 4">
+                <div class="success-icon mb-4">✅</div>
+                <h2>تم الحجز بنجاح!</h2>
+                <p>تم إرسال تفاصيل الموعد إلى هاتفك. ننتظركم في الموعد المحدد بكل ترحاب.</p>
+                <button class="btn btn-primary mt-4" routerLink="/">العودة للرئيسية</button>
+            </div>
+        </div>
+    </div>
+</section>
