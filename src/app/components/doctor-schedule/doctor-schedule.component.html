@@ -1,0 +1,31 @@
+<section class="doctor-details py-5 bg-light" *ngIf="doctor">
+    <div class="container">
+        <div class="header-details d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold m-0 text-primary">الجدول الأسبوعي: {{ doctor.name }}</h2>
+            <button class="btn btn-outline-danger btn-sm" (click)="onClose()">إغلاق الجدول</button>
+        </div>
+
+        <div class="schedule-grid">
+            <div class="day-column" *ngFor="let day of doctor.schedule">
+                <div class="day-name">{{ day.day }}</div>
+                <div class="slots">
+                    <div class="slot" *ngFor="let slot of day.slots"
+                        [ngClass]="{'booked': slot.booked, 'available': !slot.booked}" [routerLink]="['/booking']"
+                        [queryParams]="{doctor: doctor.name, time: slot.time}">
+                        <span class="time">{{ slot.time }}</span>
+                        <span class="status">{{ slot.booked ? 'محجوز' : 'متاح' }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="schedule-legend mt-4 d-flex gap-3">
+            <div class="d-flex align-items-center gap-2">
+                <span class="dot available"></span> متاح للحجز
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <span class="dot booked"></span> محجوز مسبقاً
+            </div>
+        </div>
+    </div>
+</section>

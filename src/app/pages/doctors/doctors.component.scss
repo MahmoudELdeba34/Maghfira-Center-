@@ -1,3 +1,102 @@
+.doctor-details {
+    animation: slideDown 0.4s ease-out;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+}
+
+.day-column {
+    background: var(--white);
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+
+    .day-name {
+        text-align: center;
+        font-weight: 800;
+        color: var(--primary-color);
+        padding-bottom: 0.75rem;
+        margin-bottom: 0.75rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+}
+
+.slots {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.slot {
+    padding: 0.5rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &.booked {
+        background: #fee2e2;
+        color: #991b1b;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    &.available {
+        background: #f0fdf4;
+        color: #166534;
+        border: 1px solid #dcfce7;
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            background: #dcfce7;
+        }
+    }
+
+    .time {
+        font-weight: 700;
+    }
+
+    .status {
+        font-size: 0.7rem;
+        opacity: 0.8;
+    }
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+
+    &.available {
+        background: #166534;
+    }
+
+    &.booked {
+        background: #991b1b;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .filters {
     display: flex;
     justify-content: center;
@@ -34,6 +133,7 @@
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s;
+    cursor: pointer;
 
     &:hover {
         transform: translateY(-5px);
@@ -91,20 +191,5 @@
         margin-bottom: 1.25rem;
         height: 2.5rem;
         overflow: hidden;
-    }
-
-    .social-icon {
-        display: inline-flex;
-        width: 30px;
-        height: 30px;
-        background: var(--bg-light);
-        border-radius: 50%;
-        align-items: center;
-        justify-content: center;
-        margin: 0 5px;
-        font-size: 0.8rem;
-        font-style: normal;
-        font-weight: bold;
-        color: var(--primary-color);
     }
 }

@@ -8,6 +8,10 @@
     </div>
 </section>
 
+<!-- Doctor Schedule Details — using standalone DoctorScheduleComponent -->
+<app-doctor-schedule *ngIf="selectedDoctor" [doctor]="selectedDoctor" (closeDetails)="closeDetails()">
+</app-doctor-schedule>
+
 <section class="doctors-gallery py-5">
     <div class="container">
         <div class="filters mb-5">
@@ -19,12 +23,11 @@
         </div>
 
         <div class="doctors-grid">
-            <div class="doctor-card" *ngFor="let doc of doctors">
+            <div class="doctor-card" *ngFor="let doc of doctors" (click)="selectDoctor(doc)">
                 <div class="doctor-img">
                     <img [src]="doc.image" [alt]="doc.name">
                     <div class="overlay">
-                        <button class="btn btn-primary btn-sm" [routerLink]="['/booking']"
-                            [queryParams]="{doctor: doc.name}">حجز موعد</button>
+                        <button class="btn btn-primary btn-sm">عرض الجدول</button>
                     </div>
                 </div>
                 <div class="doctor-info">
@@ -32,9 +35,7 @@
                     <span class="specialty">{{ doc.specialty }}</span>
                     <p class="degree">{{ doc.degree }}</p>
                     <div class="actions">
-                        <i class="social-icon">f</i>
-                        <i class="social-icon">t</i>
-                        <i class="social-icon">i</i>
+                        <button class="btn btn-outline-primary btn-sm w-100 mt-2">عرض المواعيد</button>
                     </div>
                 </div>
             </div>
